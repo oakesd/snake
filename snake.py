@@ -74,6 +74,13 @@ class Snake:
         for segment in self.segments:
             segment.hideturtle()
 
+    def reset(self):
+        for segment in self.segments:
+            segment.hideturtle()
+        self.segments.clear()
+        self.create_snake()
+        self.head = self.segments[0]
+
     class Segment(Turtle):
 
         def __init__(self):
@@ -82,3 +89,4 @@ class Snake:
             self.color(COLOR)
             self.speed(0)
             self.pu()
+

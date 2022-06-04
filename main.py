@@ -29,6 +29,11 @@ def game_over():
     stop()
 
 
+def reset():
+    scoreboard.reset()
+    snake.reset()
+
+
 snake = Snake()
 food = Food()
 scoreboard = Scoreboard()
@@ -66,12 +71,12 @@ def play():
         if snake.head.xcor() < (SCREEN_SIZE/2 * -1) or snake.head.xcor() > (SCREEN_SIZE/2) \
                 or snake.head.ycor() < (SCREEN_SIZE/2 * -1) or snake.head.ycor() > (SCREEN_SIZE/2):
 
-            game_over()
+            reset()
 
         # detect collision with self
         for segment in snake.segments[1:]:
             if snake.head.distance(segment) < 10:
-                game_over()
+                reset()
 
 
 play()
